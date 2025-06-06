@@ -166,7 +166,8 @@ with col1:
             pred = model.predict(np.expand_dims(features, 0))
             emotion = label_encoder.inverse_transform([np.argmax(pred)])[0]
             emoji = emotion_emoji.get(emotion, "")
-            st.success(f"**Detected Emotion:** <span style='font-size:1.5em'>{emotion.capitalize()} {emoji}</span>", unsafe_allow_html=True)
+            # FIX: Removed unsafe_allow_html (not supported in st.success)
+            st.success(f"**Detected Emotion:** {emotion.capitalize()} {emoji}")
 
     col_rec, col_live = st.columns([1,1])
     with col_rec:
@@ -179,7 +180,8 @@ with col1:
                 pred = model.predict(np.expand_dims(features, 0))
                 emotion = label_encoder.inverse_transform([np.argmax(pred)])[0]
                 emoji = emotion_emoji.get(emotion, "")
-                st.success(f"**Detected Emotion:** <span style='font-size:1.5em'>{emotion.capitalize()} {emoji}</span>", unsafe_allow_html=True)
+                # FIX: Removed unsafe_allow_html (not supported in st.success)
+                st.success(f"**Detected Emotion:** {emotion.capitalize()} {emoji}")
 
     with col_live:
         # Live Microphone Detection
@@ -236,7 +238,8 @@ with col2:
                     emoji_face = emotion_emoji.get(emotion_face.lower(), "")
                     text = f"{emotion_face.capitalize()} {emoji_face}"
                     cv2.putText(rgb_frame, text, (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 255, 0), 3)
-                    detected_emotion.success(f"**Facial Emotion:** <span style='font-size:1.5em'>{emotion_face.capitalize()} {emoji_face}</span>", unsafe_allow_html=True)
+                    # FIX: Removed unsafe_allow_html (not supported in st.success)
+                    detected_emotion.success(f"**Facial Emotion:** {emotion_face.capitalize()} {emoji_face}")
                 except Exception:
                     cv2.putText(rgb_frame, "Face Not Detected", (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 2)
                     detected_emotion.warning("No face detected.")
@@ -246,4 +249,4 @@ with col2:
             detected_emotion.empty()
 
 st.markdown("---")
-st.caption("© 2025 demiko21 | [GitHub Repo](https://github.com/demiko21/SpeechEmotionRecognition)")
+st.caption("© 2025 Demuri Morchadze | [GitHub Repo](https://github.com/demiko21/SpeechEmotionRecognition)")
