@@ -126,7 +126,7 @@ with st.sidebar:
     - Click the buttons to start/stop live detection.
     - For best results: speak clearly & ensure good lighting!
     ---
-    [GitHub Repo](https://github.com/DavitChikobava)
+    [GitHub Repo](https://github.com/demiko21/SpeechEmotionRecognition)
     """)
     st.markdown("---")
     st.caption("Made with ❤️ and Streamlit")
@@ -246,4 +246,4 @@ with col2:
             detected_emotion.empty()
 
 st.markdown("---")
-st.caption("© 2025 Demuri Morchadze | Final Year Project")
+st.caption("© 2025 demiko21 | [GitHub Repo](https://github.com/demiko21/SpeechEmotionRecognition)")
